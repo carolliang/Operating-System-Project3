@@ -1,8 +1,18 @@
-﻿Build started 4/24/2017 3:33:05 PM.
+﻿Build started 4/25/2017 4:31:04 PM.
      1>Project "C:\Users\Jiaxin Liang\Documents\Visual Studio 2013\Projects\Project3\Project3\Project3.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Project3.cpp
-         Project3.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt memory_manager.cpp
+         memory_manager.cpp
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(10): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(11): warning C4244: 'initializing' : conversion from 'unsigned __int64' to 'int', possible loss of data
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(13): warning C4244: '=' : conversion from 'double' to 'unsigned __int64', possible loss of data
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(17): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(18): warning C4244: 'initializing' : conversion from 'unsigned __int64' to 'int', possible loss of data
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(20): warning C4244: '=' : conversion from 'double' to 'unsigned __int64', possible loss of data
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(27): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(40): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(58): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jiaxin liang\documents\visual studio 2013\projects\project3\project3\memory_manager.cpp(119): warning C4715: 'memory_manager::leastrecent' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jiaxin Liang\Documents\Visual Studio 2013\Projects\Project3\Debug\Project3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jiaxin Liang\Documents\Visual Studio 2013\Projects\Project3\Debug\Project3.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jiaxin Liang\Documents\Visual Studio 2013\Projects\Project3\Debug\Project3.lib" /MACHINE:X86 Debug\Project3.obj
          Debug\memory_manager.obj
@@ -11,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.65
+Time Elapsed 00:00:02.18

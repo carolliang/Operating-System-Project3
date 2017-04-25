@@ -16,9 +16,8 @@ unsigned long long memory_manager::memoryAccess(unsigned long long address){
 	{
 		int pagesize = pow(2, N);
 		int pagenumber = address / pagesize;
-		int framnumber = leastrecent(numFrames, pagenumber, head,counter, LRUhit);
+		int framnumber = leastrecent(numFrames, pagenumber,counter);
 		p_addr = framnumber* pow(2, N) + address % pagesize;
-
 	}
 	return p_addr;
 }
@@ -53,37 +52,70 @@ int memory_manager::firstinfirstout(unsigned int nF, unsigned int pagenumber, in
 	}
 
 }
-int memory_manager::leastrecent(unsigned int numFrames, unsigned int pagenumber, ListNode* head, int& counter, bool& hit)// take index from list1 and take the least freq node from list2
+int memory_manager::leastrecent(unsigned int numFrames, unsigned int pagenumber, int& counter)// take index from list1 and take the least freq node from list2
 {
-	ListNode* curr = head;
-	if (head == NULL)
-	{
-		head = new ListNode(pagenumber);
-		counter++;
-		return 0;
-	}
-	else if (counter < numFrames)
-	{
-		curr->next = new ListNode(pagenumber);
-		curr = curr->next;
-		counter++;
-		return counter - 1;
-	}
 
-	else{
-		curr = head;
-		while (curr)
+	if (counter < numFrames)// frame not full
+	{
+		if (mymap.empty())
 		{
-			if (curr->val == pagenumber)
+			mymap.insert(pair<int, int>(pagenumber, counter));
+			counter++;
+			return counter - 1;
+		}
+		else// not empty 
+		{
+			if (mymap.count(pagenumber) == 0)// no hit
 			{
-				buildlist2(head, curr);
-				break;
+				mymap.insert(pair<int, int>(pagenumber, counter));
+				counter++;
+				return counter - 1;
 			}
-			curr = curr->next;
+			else if (mymap.count(pagenumber) > 0)//hit
+			{
+				for (unordered_map<int, int>::iterator it = mymap.begin(); it != mymap.end(); it++)
+				{
+					if (it->first == pagenumber)
+					{
+						int temppgenumber = it->first;
+						int tempframenumber = it->second;
+						mymap.erase(it);
+						mymap.insert(pair<int, int>(temppgenumber, tempframenumber));
+						return tempframenumber;
+					}
+				}
+			}
 		}
 	}
-}
-ListNode* memory_manager::buildlist2(ListNode* head, ListNode* curr)
-{
 
+	else// frame is full
+	{
+		if (mymap.count(pagenumber) > 0)//hit
+		{
+			for (unordered_map<int, int>::iterator it = mymap.begin(); it != mymap.end(); it++)
+			{
+				if (it->first == pagenumber)
+				{
+					int temppgenumber = it->first;
+					int tempframenumber = it->second;
+					mymap.erase(it);
+					mymap.insert(pair<int, int>(temppgenumber, tempframenumber));
+					return tempframenumber;
+				}
+			}
+		}
+		else if (mymap.count(pagenumber) == 0)//not hit 1save frame number 2. delete head of the map 3 insert new pagenumber with old fram number return framenumber 
+		{
+			unordered_map<int, int>::iterator it = mymap.begin();
+			int framenumber = it->second;
+			mymap.erase(it);
+			mymap.insert(pair<int, int>(pagenumber, framenumber));
+			swap(framenumber, pagenumber);
+			return framenumber;
+		}
+
+
+	}
 }
+
+
